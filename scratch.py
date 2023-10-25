@@ -1,9 +1,8 @@
+import logging 
 import os
+import sys 
+from datetime import datetime
 
-pat = os.path.join("artifact","train.csv")
+LOG_FILE=f"{datetime.now().strftime('%m_%d_%Y_%H_%M_%S')}.log"
 
-#print(pat)
-
-print(os.path.dirname(pat))
-
-#os.makedirs(pat,exist_ok=True)
+print(LOG_FILE.split(".")[0])
