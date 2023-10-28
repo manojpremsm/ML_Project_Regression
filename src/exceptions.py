@@ -15,5 +15,5 @@ class custom_error_handler(Exception):
         super().__init__(error_msg)
         self.error_msg_details = error_message_details(error_msg,error_msg_details)
 
-    def __str__(self):
-        return self.error_message
+    #def __str__(self):
+        #return self.error_msg

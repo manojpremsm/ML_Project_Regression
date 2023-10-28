@@ -6,6 +6,8 @@ from dataclasses import dataclass
 from sklearn.model_selection import train_test_split
 import sys 
 import os
+from src.components import data_transformer
+from model_trainer import model_initiate
 
 @dataclass
 class dataIngestionConfig():
@@ -45,8 +47,20 @@ class dataingestion:
             logging.info("saved the data into the artifacts folder")
         except Exception as e:
             raise custom_error_handler(e,sys)
+        
+        return (
+            self.ingestionpath.train_data_path,
+            self.ingestionpath.test_data_path
+        )
 
 if __name__ == '__main__':
     obj = dataingestion()
-    obj.initiate_data_ingestion()
+    train_data,test_data = obj.initiate_data_ingestion()
+
+    data_transformer_obj = data_transformer.dataTransformation()
+    train_array,test_array,_ = data_transformer_obj.initiate_data_processing(train_data,test_data)
+    model_trainer_obj = model_initiate()
+    r2_score = model_trainer_obj.Model_trainer_initialization(train_array,test_array)
+    print(r2_score)
+
     
