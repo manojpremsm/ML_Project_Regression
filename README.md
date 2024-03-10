@@ -1,5 +1,5 @@
 # End to end ml project for student performance prediction.
-# Student Math Score Prediction Project
+
 
 This project aims to predict the final math score of students based on various features. The project encompasses data ingestion, transformation, model training, and prediction functionalities. The model is stored as a pickle file in the artifact folder after training, which is then utilized for making predictions on new data.
 
@@ -31,7 +31,7 @@ Predicting students' final math scores can provide valuable insights for educato
 ## Project Structure
 
 The project follows a structured approach with separate modules for different functionalities:
-
+```
 Root:
 
 ¦   README.md
@@ -66,7 +66,7 @@ Root:
             train_pipeline.py
             __init__.py
             
-
+```
 ## Usage
 
 ### Data Ingestion
